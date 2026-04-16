@@ -18,6 +18,7 @@
       text-align: center;
       padding: 40px 20px;
       background: #ffcc00;
+      color: black;
     }
 
     header img {
@@ -30,6 +31,7 @@
       display: flex;
       justify-content: center;
       background: #111;
+      flex-wrap: wrap;
     }
 
     nav button {
@@ -74,19 +76,34 @@
       padding:20px;
     }
 
-    .cta { margin-top:30px; text-align:center; }
+    .cta {
+      margin-top:30px;
+      text-align:center;
+    }
 
-    .cta a {
+    .btn {
       background:#ffcc00;
       padding:15px 25px;
       text-decoration:none;
       color:black;
       border-radius:20px;
       display:inline-block;
+      margin:10px;
+      font-weight:bold;
+    }
+
+    .discord { background:#5865F2; color:white; }
+
+    .card {
+      background:#111;
+      padding:20px;
+      border-radius:15px;
+      margin-top:20px;
     }
 
   </style>
 </head>
+
 <body>
 
 <header>
@@ -98,16 +115,24 @@
   <button onclick="showPage('home')">Accueil</button>
   <button onclick="showPage('about')">Qui sommes-nous</button>
   <button onclick="showPage('join')">Nous rejoindre</button>
+  <button onclick="showPage('support')">Nous soutenir</button>
 </nav>
 
+<!-- HOME -->
 <div id="home" class="content active">
   <h2>Bienvenue</h2>
-  <p>Bienvenue sur le site de la team CHX. Une team Rivals qui veut gagner toutes ses games.</p>
+  <div class="card">
+    <p>Bienvenue sur le site de la team CHX. Une team Rivals créée pour gagner toutes ses games et progresser ensemble.</p>
+  </div>
 </div>
 
+<!-- ABOUT -->
 <div id="about" class="content">
   <h2>Qui sommes-nous</h2>
-  <p>Nous sommes CHX_BiiiXx, CHX_Ayo3b3 et CHX_Zyad. Passionnés de Rivals grâce à Zyad, nous avons créé cette team après avoir débloqué le bundle et commencé à gagner toutes nos games.</p>
+
+  <div class="card">
+    <p>Nous sommes CHX_BiiiXx, CHX_Ayo3b3 et CHX_Zyad. Passionnés de Rivals grâce à Zyad, nous avons créé cette team après avoir débloqué le bundle et commencé à gagner toutes nos games.</p>
+  </div>
 
   <div class="members">
     <div class="member" onclick="showDesc('bixx')">CHX_BiiiXx</div>
@@ -118,44 +143,76 @@
   <div id="desc" class="desc">Clique sur un joueur.</div>
 </div>
 
+<!-- JOIN -->
 <div id="join" class="content">
   <h2>Nous rejoindre</h2>
 
-  <p>Envoie un mail avec ton pseudo, ton niveau et pourquoi tu veux rejoindre :</p>
+  <div class="card">
+    <p>Envoie un mail avec :</p>
+    <p>- ton pseudo<br>- ton niveau<br>- pourquoi tu veux rejoindre</p>
 
-  <p><b>teamchx@gmail.com</b></p>
+    <p><b>teamchx@gmail.com</b></p>
+  </div>
 
   <div class="cta">
-    <a href="https://discord.com" target="_blank">Discord</a>
+    <a class="btn discord" href="https://discord.gg/aaXyfe33" target="_blank">Discord</a>
+  </div>
+</div>
+
+<!-- SUPPORT -->
+<div id="support" class="content">
+  <h2>💛 Nous soutenir</h2>
+
+  <div class="card">
+    <p>Ton soutien aide la team CHX à grandir, améliorer le site et créer du contenu.</p>
+  </div>
+
+  <div class="card">
+    <h3>💳 PayPal</h3>
+    <p>Clique pour soutenir :</p>
+
+    <a class="btn" href="https://paypal.me/TeamCHX" target="_blank">
+      Soutenir avec PayPal 💛
+    </a>
+
+
+  <div class="card">
+    <h3>💬 Discord</h3>
+    <a class="btn discord" href="https://discord.gg/aaXyfe33" target="_blank">
+      Rejoindre Discord
+    </a>
   </div>
 </div>
 
 <script>
+
 function showPage(page){
-  var pages = document.getElementsByClassName('content');
-  for(var i=0;i<pages.length;i++){
+  let pages = document.getElementsByClassName('content');
+  for(let i=0;i<pages.length;i++){
     pages[i].style.display = 'none';
   }
   document.getElementById(page).style.display = 'block';
 }
 
 function showDesc(member){
-  var text = '';
+
+  let text = '';
 
   if(member==='bixx'){
-    text = 'CHX_BiiiXx : joueur agressif, toujours en train d’attaquer.';
+    text = 'CHX_BiiiXx : joueur agressif, toujours en train de push et mettre la pression.';
   }
 
   if(member==='ayo'){
-    text = 'CHX_Ayo3b3 : joueur intelligent qui réfléchit avant chaque move.';
+    text = 'CHX_Ayo3b3 : joueur intelligent, il réfléchit et prend les bonnes décisions.';
   }
 
   if(member==='zyad'){
-    text = 'CHX_Zyad : fondateur de la team, il a fait découvrir Rivals aux autres.';
+    text = 'CHX_Zyad : fondateur de la team, c’est lui qui a fait découvrir Rivals.';
   }
 
   document.getElementById('desc').innerText = text;
 }
+
 </script>
 
 </body>
