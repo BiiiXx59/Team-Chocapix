@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team CHX - Chocapix</title>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #ffcc00;
+    }
+
+    header img {
+      width: 140px;
+      display:block;
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #111;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    nav button:hover { background: #ffcc00; color: black; }
+
+    .content {
+      display: none;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .active { display: block; }
+
+    .members {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .member {
+      flex:1;
+      background:#222;
+      padding:20px;
+      text-align:center;
+      cursor:pointer;
+    }
+
+    .member:hover { background:#ffcc00; color:black; }
+
+    .desc {
+      margin-top:20px;
+      background:#111;
+      padding:20px;
+    }
+
+    .cta { margin-top:30px; text-align:center; }
+
+    .cta a {
+      background:#ffcc00;
+      padding:15px 25px;
+      text-decoration:none;
+      color:black;
+      border-radius:20px;
+      display:inline-block;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="./logo.png" alt="logo">
+  <h1>TEAM CHX - CHOCAPIX</h1>
+</header>
+
+<nav>
+  <button onclick="showPage('home')">Accueil</button>
+  <button onclick="showPage('about')">Qui sommes-nous</button>
+  <button onclick="showPage('join')">Nous rejoindre</button>
+</nav>
+
+<div id="home" class="content active">
+  <h2>Bienvenue</h2>
+  <p>Bienvenue sur le site de la team CHX. Une team Rivals qui veut gagner toutes ses games.</p>
+</div>
+
+<div id="about" class="content">
+  <h2>Qui sommes-nous</h2>
+  <p>Nous sommes CHX_BiiiXx, CHX_Ayo3b3 et CHX_Zyad. Passionnés de Rivals grâce à Zyad, nous avons créé cette team après avoir débloqué le bundle et commencé à gagner toutes nos games.</p>
+
+  <div class="members">
+    <div class="member" onclick="showDesc('bixx')">CHX_BiiiXx</div>
+    <div class="member" onclick="showDesc('ayo')">CHX_Ayo3b3</div>
+    <div class="member" onclick="showDesc('zyad')">CHX_Zyad</div>
+  </div>
+
+  <div id="desc" class="desc">Clique sur un joueur.</div>
+</div>
+
+<div id="join" class="content">
+  <h2>Nous rejoindre</h2>
+
+  <p>Envoie un mail avec ton pseudo, ton niveau et pourquoi tu veux rejoindre :</p>
+
+  <p><b>teamchx@gmail.com</b></p>
+
+  <div class="cta">
+    <a href="https://discord.com" target="_blank">Discord</a>
+  </div>
+</div>
+
+<script>
+function showPage(page){
+  var pages = document.getElementsByClassName('content');
+  for(var i=0;i<pages.length;i++){
+    pages[i].style.display = 'none';
+  }
+  document.getElementById(page).style.display = 'block';
+}
+
+function showDesc(member){
+  var text = '';
+
+  if(member==='bixx'){
+    text = 'CHX_BiiiXx : joueur agressif, toujours en train d’attaquer.';
+  }
+
+  if(member==='ayo'){
+    text = 'CHX_Ayo3b3 : joueur intelligent qui réfléchit avant chaque move.';
+  }
+
+  if(member==='zyad'){
+    text = 'CHX_Zyad : fondateur de la team, il a fait découvrir Rivals aux autres.';
+  }
+
+  document.getElementById('desc').innerText = text;
+}
+</script>
+
+</body>
+</html>
